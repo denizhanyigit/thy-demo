@@ -4,20 +4,16 @@
 <head>
   <title>Türk Hava Yolları</title>
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/custom.css">
   <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css">
   <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
     rel="stylesheet">
 
 </head>
-<style>
-  .active-select {
-    background: #F5F5F5;
-  }
-</style>
 <header>
 
-  <nav class="navbar navbar-expand-lg navbar-light navbar-first" style="border-bottom: 2px solid white;">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-first">
     <a class="navbar-brand text-white" target="_blank"
       href="https://www.turkishairlines.com/tr-tr/">turkishairlines.com</a>
 
@@ -31,7 +27,7 @@
     </div>
   </nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light navbar-second d-none" style="border-bottom: 2px solid grey;">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-second d-none">
     <a class="navbar-brand text-dark" target="_blank"
       href="https://www.turkishairlines.com/tr-tr/">turkishairlines.com</a>
 
@@ -47,7 +43,7 @@
 
 </header>
 
-<body style="background-color: #063048;">
+<body>
   <div class="container">
 
     <div class="step-1">
@@ -58,43 +54,40 @@
       </div>
 
 
-      <div class="row justify-content-center" style="background-color: rgb(96 105 119 / 60%);">
+      <div class="row justify-content-center step-1-bg">
         <form class="form-inline d-flex p-5 js-airport-form">
-          <div class="input-group mb-3" style="width: 230px; height: 70px;">
+          <div class="input-group mb-3 step-1-input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-plane-departure"></i></span>
             </div>
             <input type="text" class="form-control js-where-from" autocomplete="off" name="origin-airport" readonly
               placeholder="Nereden" aria-label="Nereden" aria-describedby="basic-addon1">
           </div>
-          <div class="input-group mb-3 ml-2" style="width: 230px; height: 70px;">
+          <div class="input-group mb-3 ml-2 step-1-input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-plane-arrival"></i></span>
             </div>
             <input type="text" class="form-control js-to-where" autocomplete="off" name="destination-airport"
               placeholder="Nereye" aria-label="Nereye" aria-describedby="basic-addon1">
           </div>
-          <div class="input-group mb-3 ml-2" style="width: 130px; height: 70px; background-color: #063048;">
+          <div class="input-group mb-3 ml-2 step-1-date">
             <span class="p-3 text-white" style="font-size: 20px;">Tarih</span>
             <span class="fa fa-calendar text-white p-3" style="font-size: 25px;"></span>
           </div>
           <div class="input-group mb-3 ml-2 js-person-choose"
             style="width: 130px; height: 70px; background-color: #063048; cursor: pointer;">
-            <span class="text-white p-2 js-person-icon" style="font-size: 20px; margin-top: auto; margin-left: auto;">
+            <span class="text-white p-2 js-person-icon people-icon">
               <i class="fa fa-male people-icon-1"></i>
             </span>
-            <span class="text-white p-2 js-person-count-small"
-              style="font-size: 20px; margin-left: auto; margin-bottom: auto;">1</span>
+            <span class="text-white p-2 js-person-count-small people-count-small">1</span>
           </div>
-          <button type="submit" class="btn text-white mb-3 ml-2"
-            style="width: 50px; height: 70px; background-color: #E81932; border-color: #E81932;"><i
+          <button type="submit" class="btn text-white mb-3 ml-2 step-1-button"><i
               class="fa fa-chevron-right"></i></button>
         </form>
       </div>
 
 
-      <div class="row js-person-choose-modal d-none"
-        style="width:350px; height: 20px; background-color: white; margin-left:auto; margin-right: 5%;">
+      <div class="row js-person-choose-modal person-choose-modal d-none">
         <div class="card" style="width: 100%;">
           <div class="card-body">
             <h5 class="card-title">Kabin ve yolcu seçimi</h5>
@@ -110,12 +103,10 @@
             <div class="row p-3 mr-3">
               <label>Yolcu</label>
               <div style="margin-left: auto;">
-                <button class="btn btn-primary js-person-minus"
-                  style="background-color: #dcdcdc; border-color: #dcdcdc;" disabled><i
+                <button class="btn btn-primary js-person-minus person-count-button" disabled><i
                     class="fa fa-minus"></i></button>
                 <span class="p-2 js-person-count">1</span>
-                <button class="btn btn-primary js-person-plus"
-                  style="background-color: #dcdcdc; border-color: #dcdcdc;"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-primary js-person-plus person-count-button"><i class="fa fa-plus"></i></button>
               </div>
             </div>
           </div>
@@ -152,10 +143,8 @@
       <div class="card text-center mt-5" style="background-color: #F5F5F5;">
         <div class="card-header text-white text-right p-3" style="background-color: #063048;">
           <span class="p-2">Sıralama Kriteri</span>
-          <span class="p-2 mr-2 js-sort-fly" data-sort-type="eco-fly"
-            style="border:1px solid white; border-radius: 8px; cursor: pointer;">Ekonomi Ücreti</span>
-          <span class="p-2 js-sort-fly" data-sort-type="date"
-            style="border:1px solid white; border-radius: 8px;cursor: pointer;">Kalkış Saati</span>
+          <span class="p-2 mr-2 js-sort-fly sort-fly" data-sort-type="eco-fly">Ekonomi Ücreti</span>
+          <span class="p-2 js-sort-fly sort-fly" data-sort-type="date">Kalkış Saati</span>
         </div>
         <div class="card-body js-flights-content">
         </div>
@@ -166,19 +155,19 @@
         <div class="col-12">
           <div class="card" style="border: none;">
             <div class="card-body">
-              <h5 class="card-title p-3" style="border-bottom: 1px solid #dcdcdc;"><img height="40"
+              <h5 class="card-title p-3 success-card-header"><img height="40"
                   src="images/check.png"> Kabin seçiminiz tamamlandı.</h5>
               <div class="row p-5">
                 <span class="card-text text-left" style="font-size: 25px;">Yolcu Sayısı</span>
-                <span class="card-text text-right js-traveller-count" style="margin-left: auto; font-size: 25px;"></span>
-              </div>  
+                <span class="card-text text-right js-traveller-count success-span"></span>
+              </div>
               <div class="row p-5">
                 <span class="card-text text-left" style="font-size: 25px;">Bilet Tutarı</span>
-                <span class="card-text text-right js-ticket-price" style="margin-left: auto; font-size: 25px;"></span>
-              </div>   
+                <span class="card-text text-right js-ticket-price success-span"></span>
+              </div>
               <div class="row p-5">
                 <span class="card-text text-left" style="font-size: 25px;">Toplam Tutar</span>
-                <span class="card-text text-right js-total-price" style="margin-left: auto; font-size: 25px;">TRY
+                <span class="card-text text-right js-total-price success-span">TRY
                   470</span>
               </div>
             </div>
@@ -191,10 +180,10 @@
         <div class="col-12">
           <div class="card" style="border: none;">
             <div class="card-body">
-              <h5 class="card-title p-3" style="border-bottom: 1px solid #dcdcdc;"><img height="40"
+              <h5 class="card-title p-3 error-card-title"><img height="40"
                   src="images/error.png"> Kabin seçiminiz tamamlanamadı.</h5>
               <div class="row p-5">
-                <button style="background-color: #E81932; margin-left: auto;" class="btn text-white js-back-to-top">Başa
+                <button class="btn text-white js-back-to-top back-to-top">Başa
                   Dön</button>
               </div>
             </div>

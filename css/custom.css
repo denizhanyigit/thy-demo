@@ -1,0 +1,86 @@
+body {
+  background-color: #063048;
+}
+
+.active-select {
+  background: #F5F5F5;
+}
+
+.navbar-first{
+  border-bottom: 2px solid white;
+}
+
+.navbar-second{
+  border-bottom: 2px solid grey;
+}
+
+.step-1-bg{
+  background-color: rgb(96 105 119 / 60%);
+}
+
+.step-1-input-group{
+  width: 230px; 
+  height: 70px;
+}
+
+.step-1-date{
+  width: 130px; 
+  height: 70px; 
+  background-color: #063048;
+}
+
+.people-icon{
+  font-size: 20px; 
+  margin-top: auto; 
+  margin-left: auto;
+}
+
+.people-count-small{
+  font-size: 20px; 
+  margin-left: auto;
+  margin-bottom: auto;
+}
+
+.step-1-button{
+  width: 50px; 
+  height: 70px; 
+  background-color: #E81932; 
+  border-color: #E81932;
+}
+
+.person-choose-modal{
+  width:350px; 
+  height: 20px; 
+  background-color: white; 
+  margin-left:auto; 
+  margin-right: 5%;
+}
+
+.person-count-button{
+  background-color: #dcdcdc; 
+  border-color: #dcdcdc;
+}
+
+.success-span{
+  margin-left: auto; 
+  font-size: 25px;
+}
+
+.back-to-top{
+  background-color: #E81932; 
+  margin-left: auto;
+}
+
+.sort-fly{
+  border:1px solid white; 
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.success-card-header{
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.error-card-title{
+  border-bottom: 1px solid #dcdcdc;
+}
