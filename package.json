@@ -1,0 +1,19 @@
+{
+  "name": "thycase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "bootstrap": "^4.0.0",
+    "http-server": "^13.0.1",
+    "jquery": "^3.6.0",
+    "sweetalert2": "^11.1.4"
+  }
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr-tr">
+
+<head>
+  <title>Türk Hava Yolları</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+    rel="stylesheet">
+
+</head>
+<style>
+  .active-select {
+    background: #F5F5F5;
+  }
+</style>
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-light navbar-first" style="border-bottom: 2px solid white;">
+    <a class="navbar-brand text-white" target="_blank"
+      href="https://www.turkishairlines.com/tr-tr/">turkishairlines.com</a>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+      <span class="navbar-text text-white">
+        searchFlight Challenge
+      </span>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-light navbar-second d-none" style="border-bottom: 2px solid grey;">
+    <a class="navbar-brand text-dark" target="_blank"
+      href="https://www.turkishairlines.com/tr-tr/">turkishairlines.com</a>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+      <span class="navbar-text text-dark">
+        searchFlight Challenge
+      </span>
+    </div>
+  </nav>
+
+</header>
+
+<body style="background-color: #063048;">
+  <div class="container">
+
+    <div class="step-1">
+
+      <div class="row d-block text-center text-white m-5">
+        <h1>Merhaba</h1>
+        <h2>Nereyi keşfetmek istersiniz?</h2>
+      </div>
+
+
+      <div class="row justify-content-center" style="background-color: rgb(96 105 119 / 60%);">
+        <form class="form-inline d-flex p-5 js-airport-form">
+          <div class="input-group mb-3" style="width: 230px; height: 70px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-plane-departure"></i></span>
+            </div>
+            <input type="text" class="form-control js-where-from" autocomplete="off" name="origin-airport" readonly
+              placeholder="Nereden" aria-label="Nereden" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3 ml-2" style="width: 230px; height: 70px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-plane-arrival"></i></span>
+            </div>
+            <input type="text" class="form-control js-to-where" autocomplete="off" name="destination-airport"
+              placeholder="Nereye" aria-label="Nereye" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3 ml-2" style="width: 130px; height: 70px; background-color: #063048;">
+            <span class="p-3 text-white" style="font-size: 20px;">Tarih</span>
+            <span class="fa fa-calendar text-white p-3" style="font-size: 25px;"></span>
+          </div>
+          <div class="input-group mb-3 ml-2 js-person-choose"
+            style="width: 130px; height: 70px; background-color: #063048; cursor: pointer;">
+            <span class="text-white p-2 js-person-icon" style="font-size: 20px; margin-top: auto; margin-left: auto;">
+              <i class="fa fa-male people-icon-1"></i>
+            </span>
+            <span class="text-white p-2 js-person-count-small"
+              style="font-size: 20px; margin-left: auto; margin-bottom: auto;">1</span>
+          </div>
+          <button type="submit" class="btn text-white mb-3 ml-2"
+            style="width: 50px; height: 70px; background-color: #E81932; border-color: #E81932;"><i
+              class="fa fa-chevron-right"></i></button>
+        </form>
+      </div>
+
+
+      <div class="row js-person-choose-modal d-none"
+        style="width:350px; height: 20px; background-color: white; margin-left:auto; margin-right: 5%;">
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">Kabin ve yolcu seçimi</h5>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="class-type" id="economy-class" value="Economy Class"
+                checked>
+              <label class="form-check-label" for="economy-class">Economy Class</label>
+            </div>
+            <div class="form-check form-check-inline ml-3">
+              <input class="form-check-input" type="radio" name="class-type" id="business-class" value="Business Class">
+              <label class="form-check-label" for="business-class">Business Class</label>
+            </div>
+            <div class="row p-3 mr-3">
+              <label>Yolcu</label>
+              <div style="margin-left: auto;">
+                <button class="btn btn-primary js-person-minus"
+                  style="background-color: #dcdcdc; border-color: #dcdcdc;" disabled><i
+                    class="fa fa-minus"></i></button>
+                <span class="p-2 js-person-count">1</span>
+                <button class="btn btn-primary js-person-plus"
+                  style="background-color: #dcdcdc; border-color: #dcdcdc;"><i class="fa fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-2 d-none">
+      <div class="card mt-5" style="border:none;">
+        <div class="card-header" style="border-bottom: 0; background-color: initial;">
+          <div class="row">
+            <div class="col-2 text-center">
+              <span class="btn- p-2 btn-block text-white" style="background-color: #E81932;">Uçuş</span>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12">
+              <h3 class="font-weight-normal js-flight-info"></h3>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-4 js-promotion-div">
+              <label style="font-weight: bold; margin-right: 5px;">Promosyon Kodu</label>
+              <input type="checkbox" data-toggle="toggle" data-on="Var" data-off="Yok" id="js-promotion">
+            </div>
+          </div>
+        </div>
+        <div class="card-body js-promotion-info d-none">
+          <p class="card-text">Promosyon kodu seçeneği ile tüm Economy kabini Eco Fly paketlerini %50 indirimle satın
+            alabilirsiniz!</p>
+          <p class="card-text">Promosyon kodu seçeneği aktifken Eco Fly paketi haricinde seçim yapılamamaktadır.</p>
+        </div>
+      </div>
+      <div class="card text-center mt-5" style="background-color: #F5F5F5;">
+        <div class="card-header text-white text-right p-3" style="background-color: #063048;">
+          <span class="p-2">Sıralama Kriteri</span>
+          <span class="p-2 mr-2 js-sort-fly" data-sort-type="eco-fly"
+            style="border:1px solid white; border-radius: 8px; cursor: pointer;">Ekonomi Ücreti</span>
+          <span class="p-2 js-sort-fly" data-sort-type="date"
+            style="border:1px solid white; border-radius: 8px;cursor: pointer;">Kalkış Saati</span>
+        </div>
+        <div class="card-body js-flights-content">
+        </div>
+      </div>
+    </div>
+    <div class="step-3 js-success mt-5 p-5 d-none">
+      <div class="row  justify-content-center">
+        <div class="col-12">
+          <div class="card" style="border: none;">
+            <div class="card-body">
+              <h5 class="card-title p-3" style="border-bottom: 1px solid #dcdcdc;"><img height="40"
+                  src="images/check.png"> Kabin seçiminiz tamamlandı.</h5>
+              <div class="row p-5">
+                <span class="card-text text-left" style="font-size: 25px;">Yolcu Sayısı</span>
+                <span class="card-text text-right js-traveller-count" style="margin-left: auto; font-size: 25px;"></span>
+              </div>  
+              <div class="row p-5">
+                <span class="card-text text-left" style="font-size: 25px;">Bilet Tutarı</span>
+                <span class="card-text text-right js-ticket-price" style="margin-left: auto; font-size: 25px;"></span>
+              </div>   
+              <div class="row p-5">
+                <span class="card-text text-left" style="font-size: 25px;">Toplam Tutar</span>
+                <span class="card-text text-right js-total-price" style="margin-left: auto; font-size: 25px;">TRY
+                  470</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step-3 js-error d-none mt-5 p-5">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="card" style="border: none;">
+            <div class="card-body">
+              <h5 class="card-title p-3" style="border-bottom: 1px solid #dcdcdc;"><img height="40"
+                  src="images/error.png"> Kabin seçiminiz tamamlanamadı.</h5>
+              <div class="row p-5">
+                <button style="background-color: #E81932; margin-left: auto;" class="btn text-white js-back-to-top">Başa
+                  Dön</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="js-where-from-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Nereden</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group text-center js-where-from-ul" style="cursor: pointer;">
+            <li class="list-group-item js-where-from-choice" data-dismiss="modal" data-input-class="js-where-from">Istanbul Airport</li>
+            <li class="list-group-item js-where-from-choice" data-dismiss="modal" data-input-class="js-where-from">Ankara Airport</li>
+            <li class="list-group-item js-where-from-choice" data-dismiss="modal" data-input-class="js-where-from">İzmir Airport</li>
+            <li class="list-group-item js-where-from-choice" data-dismiss="modal" data-input-class="js-where-from">Antalya Airport</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="js-to-where-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Nereye</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group text-center" style="cursor: pointer;">
+            <li class="list-group-item js-to-where-choice" data-dismiss="modal" data-input-class="js-to-where">Istanbul Airport</li>
+            <li class="list-group-item js-to-where-choice" data-dismiss="modal" data-input-class="js-to-where">Ankara Airport</li>
+            <li class="list-group-item js-to-where-choice" data-dismiss="modal" data-input-class="js-to-where">İzmir Airport</li>
+            <li class="list-group-item js-to-where-choice" data-dismiss="modal" data-input-class="js-to-where">Antalya Airport</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  </footer>
+</body>
+
+</html>
