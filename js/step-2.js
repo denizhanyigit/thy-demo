@@ -16,6 +16,7 @@ export default function step2(){
       $('.category-element').each(function(){
         if($(this).attr('data-category-type')=="ecoFly"){
           var priceSpan = $(this).find('.price');
+          priceSpan.html(priceSpan.attr('data-normal-price'));
           var newPrice = parseFloat(priceSpan.html()/2);
           priceSpan.html(newPrice);
         } else {
